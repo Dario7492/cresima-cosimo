@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conferma Cresima Cosimo - RSVP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Piccole aggiunte specifiche per il form senza rompere lo stile globale */
+    input, select, textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #dcdcdc;
+      border-radius: 8px;
+      font-family: inherit;
+    }
+    label { font-weight: 700; font-size: 0.9rem; color: #b08c4a; text-transform: uppercase; letter-spacing: 0.05em; }
+    .form-container { max-width: 600px; margin: 4rem auto; padding: 2rem; background: #fff; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+    <div class="form-container">
+      <h2 style="font-family: 'Playfair Display'; text-align: center; margin-bottom: 2rem;">Conferma Partecipazione</h2>
+      
+      <form id="rsvpForm">
+        <label for="nome">Nome e Cognome</label>
+        <input type="text" id="nome" placeholder="Es. Mario Rossi" required>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div>
+            <label for="adulti">Numero Adulti</label>
+            <input type="number" id="adulti" min="1" value="1" required>
+          </div>
+          <div>
+            <label for="bambini">Numero Bambini</label>
+            <input type="number" id="bambini" min="0" value="0">
+          </div>
+        </div>
+
+        <label for="seggiolini">Necessitate di seggiolini?</label>
+        <select id="seggiolini">
+          <option value="No">No</option>
+          <option value="1">Sì, 1 seggiolino</option>
+          <option value="2">Sì, 2 seggiolini</option>
+        </select>
+
+        <label for="note">Allergie o Intolleranze</label>
+        <textarea id="note" rows="3" placeholder="Indica qui eventuali celiachie, allergie o diete particolari..."></textarea>
+
+        <label for="messaggio">Un pensiero per Cosimo (Opzionale)</label>
+        <textarea id="messaggio" rows="2" placeholder="Scrivi un breve augurio..."></textarea>
+
+        <button type="button" onclick="sendToWhatsApp()" class="btn-primary" style="width: 100%; cursor: pointer; border: none;">
+          Invia Conferma su WhatsApp
+        </button>
+        
+        <p style="text-align: center; margin-top: 1.5rem; font-size: 0.8rem;">
+          <a href="index.html" style="color: #777; text-decoration: none;">← Torna alla home</a>
+        </p>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    function sendToWhatsApp() {
+      const nome = document.getElementById('nome').value;
+      const adulti = document.getElementById('adulti').value;
+      const bambini = document.getElementById('bambini').value;
+      const seggiolini = document.getElementById('seggiolini').value;
+      const note = document.getElementById('note').value || "Nessuna";
+      const msg = document.getElementById('messaggio').value || "Siamo felici di esserci!";
+
+      if(!nome) { alert("Per favore, inserisci il tuo nome."); return; }
+
+      const numeroTelefono = "3499394970"; // Numero di Alessandra Martina
+      
+      const testo = `Ciao Alessandra! Sono *${nome}*.\n\n` +
+                    `Ti confermo la nostra presenza alla Cresima di Cosimo:\n` +
+                    `- Adulti: *${adulti}*\n` +
+                    `- Bambini: *${bambini}*\n` +
+                    `- Segggiolini: *${seggiolini}*\n` +
+                    `- Note/Allergie: _${note}_\n\n` +
+                    `Messaggio: ${msg}`;
+
+      const whatsappUrl = `https://wa.me/${numeroTelefono}?text=${encodeURIComponent(testo)}`;
+      window.open(whatsappUrl, '_blank');
+    }
+  </script>
+</body>
+</html>
