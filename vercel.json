@@ -7,7 +7,7 @@
     },
     {
       "source": "/android",
-      "destination": "https://play.google.com/store/apps/details?id=app.celebrate.celebrate",
+      "destination": "https://play.google.com/store/search?q=celebrate&c=apps",
       "permanent": false
     }
   ],
