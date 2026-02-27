@@ -8,7 +8,7 @@ body { font-family: "Lato", sans-serif; background: #f8f5f0; color: #2b2b2b; lin
 .hero h1 { font-family: "Playfair Display", serif; font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 1rem; }
 .hero-tagline { color: #b08c4a; text-transform: uppercase; letter-spacing: 0.3em; font-size: 0.8rem; margin-bottom: 1rem; }
 
-/* NAV - AGGIORNATA */
+/* NAV - RESPONSIVE CON SCROLL */
 .top-nav { 
     position: sticky; 
     top: 0; 
@@ -20,13 +20,12 @@ body { font-family: "Lato", sans-serif; background: #f8f5f0; color: #2b2b2b; lin
     gap: 1.5rem; 
     padding: 1rem; 
     border-bottom: 1px solid rgba(0,0,0,0.05);
-    overflow-x: auto; /* Permette lo scroll se i link sono troppi */
-    white-space: nowrap; /* Impedisce al testo di andare a capo */
+    overflow-x: auto; 
+    white-space: nowrap; 
     -webkit-overflow-scrolling: touch;
 }
 
-/* Nasconde la scrollbar su Chrome/Safari per estetica */
-.top-nav::-webkit-scrollbar { display: none; }
+.top-nav::-webkit-scrollbar { display: none; } /* Nasconde scrollbar */
 
 .top-nav a { 
     font-size: 0.75rem; 
@@ -34,8 +33,7 @@ body { font-family: "Lato", sans-serif; background: #f8f5f0; color: #2b2b2b; lin
     text-decoration: none; 
     color: #777; 
     letter-spacing: 0.1em; 
-    flex-shrink: 0; /* Impedisce ai link di rimpicciolirsi */
-    padding: 0.2rem 0;
+    flex-shrink: 0;
 }
 
 /* SEZIONI */
@@ -45,7 +43,7 @@ h2 { font-family: "Playfair Display", serif; font-size: 2rem; margin-bottom: 1.5
 h3 { font-family: "Playfair Display", serif; margin-bottom: 0.5rem; color: #b08c4a; }
 
 /* PULSANTI */
-.btn-primary { display: inline-block; background: #b08c4a; color: #fff; padding: 0.8rem 2rem; border-radius: 50px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; transition: 0.3s; }
+.btn-primary { display: inline-block; background: #b08c4a; color: #fff; padding: 0.8rem 2rem; border-radius: 50px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; transition: 0.3s; border: none; }
 .btn-outline { display: inline-block; border: 1px solid #b08c4a; color: #b08c4a; padding: 0.6rem 1.5rem; border-radius: 50px; text-decoration: none; font-size: 0.8rem; margin-top: 1rem; }
 .btn-spaced { margin-top: 2.5rem; }
 
@@ -58,18 +56,19 @@ h3 { font-family: "Playfair Display", serif; margin-bottom: 0.5rem; color: #b08c
 .btn-app img { height: 35px; }
 .code-placeholder { margin-top: 1.5rem; padding: 0.7rem; background: #f8f5f0; border: 2px dashed #b08c4a; border-radius: 8px; color: #b08c4a; font-weight: bold; font-size: 0.8rem; }
 
-/* GRID LAYOUT - AGGIORNATA */
+/* FOOTER */
+.footer { padding: 2rem 0; text-align: center; font-size: 0.8rem; color: #999; border-top: 1px solid rgba(0,0,0,0.05); }
+
+/* GRID LAYOUT E MEDIA QUERIES */
 .two-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
 
 @media (max-width: 768px) { 
     .two-columns { grid-template-columns: 1fr; } 
-    
     .top-nav { 
-        justify-content: flex-start; /* Allinea a sinistra per lo scroll */
+        justify-content: flex-start; 
         padding: 1rem 1.5rem; 
-        gap: 2rem; /* Più spazio tra i link per facilitare il tocco */
+        gap: 1.8rem; 
     }
-    
     .hero h1 { font-size: 2.2rem; }
     .section { padding: 3rem 0; }
 }
