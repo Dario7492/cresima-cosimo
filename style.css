@@ -13,20 +13,18 @@ body { font-family: "Lato", sans-serif; background: #f8f5f0; color: #2b2b2b; lin
   position: sticky; 
   top: 0; 
   z-index: 100; 
-  background: rgba(248,245,240,0.95); 
-  backdrop-filter: blur(5px); 
+  background: rgba(248,245,240,0.98); 
+  backdrop-filter: blur(10px); 
   display: flex; 
-  justify-content: flex-start; /* Allinea a sinistra per permettere lo scroll */
+  justify-content: flex-start; 
   gap: 1.5rem; 
   padding: 1.2rem 1rem; 
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  overflow-x: auto; /* Attiva lo scorrimento orizzontale */
-  white-space: nowrap; /* Impedisce alle parole di andare a capo */
-  -webkit-overflow-scrolling: touch; /* Rende lo scroll fluido su iPhone */
+  border-bottom: 1px solid rgba(176,140,74,0.1);
+  overflow-x: auto; 
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
 }
-
-/* Nasconde la barra di scorrimento brutta su alcuni browser */
-.top-nav::-webkit-scrollbar { display: none; }
+.top-nav::-webkit-scrollbar { display: none; } /* Nasconde la barra scroll */
 
 .top-nav a { 
   font-size: 0.75rem; 
@@ -34,10 +32,9 @@ body { font-family: "Lato", sans-serif; background: #f8f5f0; color: #2b2b2b; lin
   text-decoration: none; 
   color: #777; 
   letter-spacing: 0.1em;
-  flex-shrink: 0; /* Impedisce alle voci del menu di rimpicciolirsi */
+  flex-shrink: 0;
 }
 
-/* Centra il menu se lo schermo è grande (Computer) */
 @media (min-width: 768px) {
   .top-nav { justify-content: center; }
 }
@@ -49,26 +46,21 @@ h2 { font-family: "Playfair Display", serif; font-size: 2rem; margin-bottom: 1.5
 h3 { font-family: "Playfair Display", serif; margin-bottom: 0.5rem; color: #b08c4a; }
 
 /* PULSANTI */
-.btn-primary { display: inline-block; background: #b08c4a; color: #fff; padding: 0.8rem 2rem; border-radius: 50px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; transition: 0.3s; border: none; }
+.btn-primary { display: inline-block; background: #b08c4a; color: #fff; padding: 0.8rem 2rem; border-radius: 50px; text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; transition: 0.3s; border: none; cursor: pointer; }
 .btn-outline { display: inline-block; border: 1px solid #b08c4a; color: #b08c4a; padding: 0.6rem 1.5rem; border-radius: 50px; text-decoration: none; font-size: 0.8rem; margin-top: 1rem; }
-
 .btn-spaced { margin-top: 2.5rem; }
 
 /* SEZIONE FOTO APP */
 .app-instructions { text-align: center; }
 .steps-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 3rem; }
-
-@media (min-width: 768px) {
-  .steps-grid { grid-template-columns: repeat(3, 1fr); }
-}
+@media (min-width: 768px) { .steps-grid { grid-template-columns: repeat(3, 1fr); } }
 
 .step { padding: 2rem; background: #fff; border-radius: 20px; border: 1px solid rgba(176,140,74,0.1); position: relative; }
 .step-number { display: inline-block; width: 35px; height: 35px; background: #b08c4a; color: #fff; border-radius: 50%; line-height: 35px; font-weight: bold; margin-bottom: 1rem; }
 .app-buttons { display: flex; justify-content: center; gap: 1rem; margin-top: 1.5rem; }
 .btn-app img { height: 35px; }
+.code-placeholder { margin-top: 1.5rem; padding: 0.7rem; background: #f8f5f0; border: 2px dashed #b08c4a; border-radius: 8px; color: #b08c4a; font-weight: bold; font-size: 0.8rem; }
 
 /* GRID LAYOUT MAPPE */
 .two-columns { display: grid; grid-template-columns: 1fr; gap: 2rem; }
-@media (min-width: 768px) {
-  .two-columns { grid-template-columns: 1fr 1fr; }
-}
+@media (min-width: 768px) { .two-columns { grid-template-columns: 1fr 1fr; } }
